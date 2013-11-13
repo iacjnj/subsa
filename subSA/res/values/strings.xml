@@ -5,6 +5,7 @@
     <string name="hello_world">Hello world!</string>
     <string name="start">开始</string>
     <string name="end">结束</string>
-    <string name="airplane_mode">打开飞行模式</string>
+    <string name="airplane_mode">飞行模式</string>
     <string name="bluetooth">打开蓝牙</string>
+    <string name="silent_mode">打开静音</string>
 </resources>

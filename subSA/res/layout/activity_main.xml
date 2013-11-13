@@ -7,7 +7,18 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
-    tools:context=".MainActivity" >
+    tools:context=".MainActivity"
+    android:background="#ff000000" >
+
+    <CheckBox
+        android:id="@+id/switch_checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <View 
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#ff595959" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,18 +26,22 @@
         android:orientation="horizontal" >
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/TVTheme"
             android:text="@string/start" />
 <!-- <TimePicker 
            android:id="@+id/start_timepicker"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content" /> -->
         <TextView 
-           android:id="@+id/start_time_tv"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content" />
+            android:id="@+id/start_time_tv"
+            style="@style/TimeTVTheme"
+            android:text="0:00" />
     </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#ffd0d0d0" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -34,27 +49,16 @@
         android:orientation="horizontal" >
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/TVTheme"
             android:text="@string/end" />
 <!-- <TimePicker 
             android:id="@+id/end_timepicker"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" /> -->
-        <TimePicker 
+        <TextView 
             android:id="@+id/end_time_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            style="@style/TimeTVTheme"
+            android:text="23:59" />
     </LinearLayout>
 
-    <CheckBox
-        android:id="@+id/airplane_checkbox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/airplane_mode" />
-    <CheckBox
-        android:id="@+id/bluetooth_checkbox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/bluetooth" />
 </LinearLayout>
