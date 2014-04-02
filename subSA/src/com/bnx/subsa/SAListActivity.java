@@ -23,29 +23,37 @@ public class SAListActivity extends Activity implements OnItemClickListener {
     private ListView mLVSa;
     private SAAdapter mAdapter;
 
+    ArrayList<HashMap<String, Object>> mData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sa_list);
 
-        ArrayList<HashMap<String, Object>> data = getData();
-
-        mAdapter = new SAAdapter(this, data);
+        // mData = getData();
+        // mAdapter = new SAAdapter(this, mData);
         initView();
     }
 
     protected void onResume() {
         super.onResume();
-        // ArrayList<HashMap<String, Object>> data = getData();
-        // mAdapter = new SAAdapter(this, data);
-        // mAdapter.notify();
+
+        getData();
+        if (mAdapter == null) {
+            mAdapter = new SAAdapter(this, mData);
+            mLVSa.setAdapter(mAdapter);
+        } else {
+            mAdapter.notifyDataSetChanged();
+        }
     }
 
     private ArrayList<HashMap<String, Object>> getData() {
         // TODO Auto-generated method stub
-        ArrayList<HashMap<String, Object>> arrayList = new ArrayList<HashMap<String, Object>>();
-
+        if (mData == null) {
+            mData = new ArrayList<HashMap<String, Object>>();
+        } else {
+            mData.clear();
+        }
 
         for (int i = 0; i < Const.mActions.length; i++) {
             HashMap<String, Object> tempHashMap = new HashMap<String, Object>();
@@ -68,20 +76,19 @@ public class SAListActivity extends Activity implements OnItemClickListener {
             boolean isChecked = timeInfo.getBoolean(Const.SP_KEY_CHECK, false);
             tempHashMap.put(Const.SP_KEY_CHECK, isChecked);
 
-            arrayList.add(tempHashMap);
+            mData.add(tempHashMap);
         }
-        return arrayList;
+        return mData;
     }
 
     private void initView() {
         mLVSa = (ListView) findViewById(R.id.sa_list);
-        mLVSa.setAdapter(mAdapter);
         mLVSa.setOnItemClickListener(this);
     }
 
     @Override
     public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-        // TODO Auto-generated method stub
+        // TODO Auto-generated method stu
         Intent it = new Intent(this, MainActivity.class);
         it.setAction(Const.mActions[arg2]);
         startActivity(it);

@@ -22,8 +22,19 @@ public class Const {
     public static final String INTENT_AP = "airplane_mode";
     public static final String INTENT_BT = "bluetooth_on";
     public static final String INTENT_SL = "silence";
-    public static final String INTENT_ACT_START = "start.mode";
-    public static final String INTENT_ACT_END = "end.mode";
+    public static final String INTENT_ACT_AP_START = "start.ap";
+    public static final String INTENT_ACT_AP_END = "end.ap";
+    public static final String INTENT_ACT_BT_START = "start.bt";
+    public static final String INTENT_ACT_BT_END = "end.bt";
+    public static final String INTENT_ACT_SL_START = "start.sl";
+    public static final String INTENT_ACT_SL_END = "end.sl";
+    public static final String INTENT_TYPE_KEY = "type.key";
+
+    public static final int INTENT_FLAG_AP = 1;
+    public static final int INTENT_FLAG_BT = 2;
+    public static final int INTENT_FLAG_SL = 4;
+
+    public static final String KEY_RING_MODE = "Ringer.Mode";
 
     public static final char COLON = ':';
     public static String[] mActions = {
